@@ -3,23 +3,15 @@ import * as ReactDOM from 'react-dom/client';
 import {
   createRouter,
   RouterProvider,
-  createBrowserHistory,
+  createHashHistory,
 } from '@tanstack/react-router';
 import '@/styles/globals.css';
 import { routeTree } from './routeTree.gen';
 
-// Derive ingress-safe base from document base URI
-const basename = new URL(document.baseURI).pathname.replace(/\/$/, '');
-
-// Create browser history with basename
-const history = createBrowserHistory({
-  basename,
-});
-
-// Create router WITHOUT basepath
+// Use hash-based routing (ingress-safe)
 const router = createRouter({
   routeTree,
-  history,
+  history: createHashHistory(),
 });
 
 // Register the router instance for type safety
