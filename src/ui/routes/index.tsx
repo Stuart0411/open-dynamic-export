@@ -26,9 +26,23 @@ function Index() {
         },
     );
 
-    if (!coordinatorStatus?.running) {
-        return null;
-    }
+    
+if (!coordinatorStatus) {
+    return (
+        <div className="p-6 text-white/60">
+            Initialising coordinator…
+        </div>
+    );
+}
+
+if (!coordinatorStatus.running) {
+    return (
+        <div className="p-6 text-white/60">
+            Coordinator not running
+        </div>
+    );
+}
+
 
     return (
         <div>
