@@ -4,7 +4,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import '@/styles/globals.css';
 import { routeTree } from './routeTree.gen';
 
-/ Detect Home Assistant ingress base path if present
+// Detect Home Assistant ingress base path if present
 // e.g. /api/hassio_ingress/<token>/...
 const match = window.location.pathname.match(/^(\/api\/hassio_ingress\/[^/]+)/);
 const basepath = match ? match[1] : '/';
